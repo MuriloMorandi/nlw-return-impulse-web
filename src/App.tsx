@@ -1,11 +1,10 @@
+import { Widget } from "./components/Widget/Widget";
 
-
-function App() {
+export function App() {
   return (
     <div>
       Olá Mundo
+      <Widget/>
     </div>
   )
 }
-
-export default App
