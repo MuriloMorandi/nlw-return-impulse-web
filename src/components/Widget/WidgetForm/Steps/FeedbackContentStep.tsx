@@ -3,6 +3,7 @@ import { ArrowLeft } from "phosphor-react";
 import { feedbackTypes, FeedbackType } from ".."
 import { CloseButton } from "../../../CloseButton";
 import { ScreenshotButton } from "../ScreenshotButton";
+import { sendFeedback } from "../../../../Api/api";
 
 interface FeedbackContentStepProps{
     feedbackType: FeedbackType;
@@ -15,15 +16,17 @@ export function FeedbackContentStep({ feedbackType, onClickReturn, onFeedbackSen
     const [screenshot, setScreenshot] = useState<string | null>(null);
     const [comment, setComment] = useState("");
 
-    function handlesubmitFeedback(event: FormEvent) {
+    function handleSubmitFeedback(event: FormEvent) {
         event.preventDefault()
-
-        console.log({
-            feedbackType,
-            screenshot,
-            comment
+        
+        sendFeedback({
+            data: {   
+                type: feedbackType,
+                screenshot,
+                comment
+            }
         });
-
+        
         onFeedbackSent();
     }
 
@@ -44,7 +47,7 @@ export function FeedbackContentStep({ feedbackType, onClickReturn, onFeedbackSen
                 </span>
                 <CloseButton/>
             </header>
-            <form className="my-4 w-full" onSubmit={handlesubmitFeedback}>
+            <form className="my-4 w-full" onSubmit={handleSubmitFeedback}>
                 <textarea
                     className="min-w-[300px] w-full min-h-[112px] text-sm placeholder:-zinc-400 text-zinc-100 border-zinc-600 bg-transparent rounded-md focus:border-brand-500 focus:ring-brand-500 focus:ring-1 focus:outline focus:outline-none resize-none scrollbar scrollbar-thumb-zinc-700 scrollbar-track-transparent scrollbar-thin"
                     placeholder="Conte com detalhes o que está acontecendo..."
