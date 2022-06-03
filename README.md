@@ -16,6 +16,9 @@ Um Component Widget para feedback que pode ser utilizado em qualquer site.
 - ReactJS
 - Axios
 
+## 🧵 Outras Partes do projeto...
+- <a href="https://github.com/MuriloMorandi/nlw-return-impulse-web">Widget Web</a>
+- <a href="https://github.com/MuriloMorandi/nlw-return-impulse-mobile">Widget Mobile</a>  
 
 ## 🚀 **Em constante evolução...**
 
